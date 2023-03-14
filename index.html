@@ -1,0 +1,55 @@
+<!DOCTYPE hmtl>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>agecalculator</title>
+   </head>
+   <body>
+   <input type="date" id="give">
+   <button onclick="click()" id="btn">calculate age</button>
+   <div id="div">
+   </div>
+   <script>
+   let input = document.getElementById('give');
+let btn = document.getElementById('btn');
+let result = document.getElementById('div')
+
+btn.addEventListener('click', ()=>{
+    let today = new Date();
+    let date = new Date(input.value);
+
+    var years;
+    if (today.getMonth() > date.getMonth() || (today.getMonth() ==  date.getMonth() && today.getDate() >=  date.getDate())) {
+        years = today.getFullYear() -  date.getFullYear();
+      }
+      else {
+        years = today.getFullYear() -  date.getFullYear() - 1;
+      }
+	  
+	  
+    var months;
+    if (today.getDate() >=  date.getDate()) {
+        months = today.getMonth() -  date.getMonth();
+      }
+      else{
+        months = today.getMonth() -  date.getMonth() - 1;
+      }
+	  
+	  
+	  
+      var days;
+      var monthDays = [31,28,31,30,31,30,31,31,30,31,30,31];
+      if(today.getDate() >  date.getDate()){
+        days = today.getDate() -  date.getDate();
+      }
+      else{
+        days = today.getDate()-  date.getDate() + monthDays[ date.getMonth()];
+      }
+
+      result.innerText = ` ${years} years ${months} months ${days} days old.`
+
+})
+
+   </script>
+   </body>
+   </html>
