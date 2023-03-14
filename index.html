@@ -27,14 +27,17 @@ btn.addEventListener('click', ()=>{
       }
 	  
 	  
-    var months;
-    if (today.getDate() >=  date.getDate()) {
-        months = today.getMonth() -  date.getMonth();
+     var months;
+    if (today.getDate() >= date.getDate()) {
+        months = today.getMonth() - date.getMonth();
       }
       else{
-        months = today.getMonth() -  date.getMonth() - 1;
+        months = today.getMonth() - date.getMonth() - 1;
       }
 	  
+	  if(months <0){
+	    months=months + 12
+	  }
 	  
 	  
       var days;
